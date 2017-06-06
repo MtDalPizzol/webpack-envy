@@ -1,8 +1,12 @@
 {
   "name": "webpack-envy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An organizer for your Webpack configurations.",
-  "keywords": ["webpack", "environment", "webpack-envy"],
+  "keywords": [
+    "webpack",
+    "environment",
+    "webpack-envy"
+  ],
   "main": "index.js",
   "author": "Matheus Dal'Pizzol <matheusdalpizzol@gmail.com>",
   "homepage": "https://github.com/MtDalPizzol/webpack-envy",
