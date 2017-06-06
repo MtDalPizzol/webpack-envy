@@ -56,7 +56,7 @@ module.exports = envy.getConfig()
 
 ## Example
 
-If you have the following file structure:
+If you have the following folder structure:
 
     .
     ├── settings              # Holds project configuration files
@@ -80,7 +80,7 @@ module.exports = envy.getConfig()
 ```
 ## How should I set the environment?
 
-I recommend you to use the **scripts** property of your **package.json**, passing **NODE_ENV=environment** for each command you specify, for example:
+I recommend you to use the **scripts** property of your **package.json**, passing **NODE_ENV=environment** for each command you specify. For example:
 
 ```javascript
   "scripts": {
