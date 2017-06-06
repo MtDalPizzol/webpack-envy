@@ -1,8 +1,6 @@
 # Webpack Envy
 > An organizer for your Webpack configurations.
 
-NOTE: THIS IS NOT A WEBPACK BOILERPLATE NOR A SCAFFOLDING TOOL
-
 This is a simple utility that prevents your Webpack configurations from turning into a complex and confusing box of "if" statements. It organizes your settings by environment and delivers a full configuration object using [webpack-merge](https://github.com/survivejs/webpack-merge).
 
 ## Installation
