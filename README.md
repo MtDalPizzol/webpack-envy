@@ -1,6 +1,7 @@
 # Webpack Envy
+> An organizer for your Webpack configurations.
 
-    ** WARNING: THIS IS NOT A WEBPACK BOILERPLATE NOR A SCAFFOLDING TOOL **
+NOTE: THIS IS NOT A WEBPACK BOILERPLATE NOR A SCAFFOLDING TOOL
 
 This is a simple utility that prevents your Webpack configurations from turning into a complex and confusing box of "if" statements. It organizes your settings by environment and delivers a full configuration object using [webpack-merge](https://github.com/survivejs/webpack-merge).
 
@@ -19,7 +20,7 @@ $ npm install webpack-envy --save-dev
 **If you're starting fresh**, Webpack Envy CLI can create the following folder structure and wire it all up so you can focus on writing your configuration instead of organizing it.
 
 ```bash
-$ webpack-envy create
+$ ./node_modules/.bin/webpack-envy create
 ```
     .
     ├── config                        # Holds project configuration files
