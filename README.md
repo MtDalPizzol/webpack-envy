@@ -142,7 +142,9 @@ module.exports = function (settings) {
   return {
 
     plugins: [
-      new CleanWebpackPlugin(['./dist/*'])
+      new CleanWebpackPlugin(['./dist/*'], {
+        root: settings.root
+      })
     ]
 
   }
