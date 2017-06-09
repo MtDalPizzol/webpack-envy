@@ -11,4 +11,4 @@ All notable changes to this project will be documented in this file.
 - `env` option now accepts an `Object`.
 - `commonEnvName` option is now `commonEnvId`.
 
-[0.1.0]:https://github.com/MtDalPizzol/webpack-envy/releases/tag/0.1.0
+[0.1.0]:https://github.com/MtDalPizzol/webpack-envy/releases/tag/v0.1.0
