@@ -7,34 +7,54 @@ class WebpackEnvy {
     this.defaults = {
       path: './config',
       filename: 'webpack.[env].js',
-      commonEnvName: 'common',
+      commonEnvId: 'common',
+      env: null,
       root: process.cwd(),
-      env: process.env.NODE_ENV || 'development',
       verbose: false
     }
 
     this.settings = _.merge({}, this.defaults, options)
-    this.dir = path.resolve(this.settings.root, this.settings.path)
+    this.configDir = path.resolve(this.settings.root, this.settings.path)
     this.placeholder = '[env]'
-
-    if (this.settings.verbose) {
-      console.log('webpack-envy: running for ' + this.settings.env + ' environment.')
-    }
-
-    const commonConfigFile = path.resolve(this.dir, this.settings.filename.replace(this.placeholder, this.settings.commonEnvName))
-    const envConfigFile = path.resolve(this.dir, this.settings.filename.replace(this.placeholder, this.settings.env))
-
-    this.commonConfig = require(commonConfigFile)
-    this.envConfig = require(envConfigFile)
-
-    this.config = merge(
-      this.commonConfig(this.settings),
-      this.envConfig(this.settings)
-    )
   }
 
   getConfig () {
-    return this.config
+    return (env) => {
+      if (!this.settings.env) {
+        this.settings.env = env
+      }
+
+      if (_.isString(this.settings.env)) {
+        this.settings.env = {
+          id: this.settings.env
+        }
+      }
+
+      if (_.isPlainObject(this.settings.env) && !this.settings.env.id) {
+        this.settings.env.id = process.env.NODE_ENV || 'development'
+      }
+
+      if (!_.isPlainObject(this.settings.env)) {
+        throw new Error('webpack-envy: Please, provide a valid "env" option.')
+      }
+
+      if (this.settings.verbose) {
+        console.log('webpack-envy: running for ' + this.settings.env.id + ' environment.')
+      }
+
+      const commonConfigFile = path.resolve(this.configDir, this.settings.filename.replace(this.placeholder, this.settings.commonEnvId))
+      const envConfigFile = path.resolve(this.configDir, this.settings.filename.replace(this.placeholder, this.settings.env.id))
+
+      this.commonConfig = require(commonConfigFile)
+      this.envConfig = require(envConfigFile)
+
+      this.config = merge(
+        this.commonConfig(this.settings),
+        this.envConfig(this.settings)
+      )
+
+      return this.config
+    }
   }
 }
 
