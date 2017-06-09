@@ -147,14 +147,13 @@ console.log(settings.env.customParam2); // 2
 
 Of course you can. All you have to do is:
 
-  * Create an environment file under your config directory matching the environment id. For example:    
-
+Create an environment file under your config directory matching the environment id. For example:    
 
     .
     ├── config
     │   ├── webpack.mynewenv.js
 
-  * Pass the environment id to the
+Pass the environment id to the
   initialization.
 
 ```javascript
